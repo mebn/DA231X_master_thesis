@@ -37,16 +37,16 @@ def merge():
     )
 
     # copy train
-    # shutil.copytree(
-    #     "../seaDronesSee/images/train",
-    #     "../seaDronesSee_yolo/images/temp",
-    #     dirs_exist_ok=True,
-    # )
+    shutil.copytree(
+        "../seaDronesSee/images/train",
+        "../seaDronesSee_yolo/images/temp",
+        dirs_exist_ok=True,
+    )
 
     # copy boxes coordinates
     dst = "../seaDronesSee_yolo/labels/temp"
     os.makedirs(dst)
-    for src in ["val"]:
+    for src in ["val", "train"]:
         src = f"../seaDronesSee/annotations/instances_{src}.json"
 
         images = {}
@@ -131,8 +131,14 @@ def split():
             shutil.move(label_path, split_dirs[split]["labels"])
 
 
+def remove_folders():
+    shutil.rmtree("../seaDronesSee_yolo/images/temp")
+    shutil.rmtree("../seaDronesSee_yolo/labels/temp")
+
+
 if __name__ == "__main__":
     create_folders()
     create_data_yaml()
     merge()
     split()
+    remove_folders()
