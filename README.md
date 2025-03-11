@@ -23,9 +23,11 @@ python main.py
 
 ## Data
 
-Run this once after downloading the [SeaDronesSee](https://www.kaggle.com/datasets/ubiratanfilho/sds-dataset) dataset.
+After downloading the [SeaDronesSee](https://www.kaggle.com/datasets/ubiratanfilho/sds-dataset) dataset.
 
 ```sh
 cd data
-python main.py
+
+# Convert to YOLO format
+python converter.py
 ```
