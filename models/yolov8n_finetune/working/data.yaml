@@ -1,5 +1,0 @@
-train: /kaggle/input/seadronessee-0-2/small_dataset/images/train
-val: /kaggle/input/seadronessee-0-2/small_dataset/images/val
-test: /kaggle/input/seadronessee-0-2/small_dataset/images/test
-nc: 6
-names: ["ignored", "swimmer", "boat", "jetski", "life_saving_appliances", "buoy"]

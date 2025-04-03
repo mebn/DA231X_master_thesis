@@ -5,3 +5,4 @@ videos
 seaDronesSee
 seaDronesSee_yolo
 dataset
+data/*.zip

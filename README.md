@@ -14,20 +14,16 @@ pip install -r requirements.txt
 deactivate
 ```
 
-## Server
-
-```sh
-cd server
-python main.py
-```
-
 ## Data
 
-After downloading the [SeaDronesSee](https://www.kaggle.com/datasets/ubiratanfilho/sds-dataset) dataset.
+Download the [SeaDronesSee](https://www.kaggle.com/datasets/ubiratanfilho/sds-dataset) dataset.
 
 ```sh
 cd data
 
 # Convert to YOLO format
-python converter.py
+python convert2yolo.py
+
+# Reduce number of elements
+python minimize.py
 ```
