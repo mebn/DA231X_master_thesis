@@ -5,7 +5,7 @@ import random
 base_dir = "seaDronesSee_yolo"
 
 # How much to keep (between 0 and 1)
-keep = 0.15
+keep = 0.31
 
 # Define dataset splits
 splits = ["train", "val", "test"]
@@ -34,3 +34,18 @@ for split in splits:
 # Reduced train set to 982 images and labels.
 # Reduced val set to 122 images and labels.
 # Reduced test set to 122 images and labels.
+
+# keep = 0.31
+# Reduced train set to 2029 images and labels.
+# Reduced val set to 253 images and labels.
+# Reduced test set to 253 images and labels.
+
+# keep = 0.35
+# Reduced train set to 2291 images and labels.
+# Reduced val set to 286 images and labels.
+# Reduced test set to 286 images and labels.
+
+# keep = 0.40
+# Reduced train set to 2618 images and labels.
+# Reduced val set to 327 images and labels.
+# Reduced test set to 327 images and labels.
