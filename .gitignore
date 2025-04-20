@@ -4,3 +4,5 @@
 videos
 dataset
 data/seaDronesSee*
+runs/
+testing/data.yaml

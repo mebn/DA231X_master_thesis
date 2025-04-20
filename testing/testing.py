@@ -15,11 +15,13 @@ from ultralytics import YOLO
 data_file = "data.yaml"
 
 with open(data_file, "w") as f:
-    f.write("""test: ../../seaDronesSee_yolo_testing/images/test
+    f.write("""train: ../../seaDronesSee_yolo_testing/images/test
+val: ../../seaDronesSee_yolo_testing/images/test
+test: ../../seaDronesSee_yolo_testing/images/test
 nc: 1
 names: ["human"]""")
 
-model = YOLO("/kaggle/working/model/weights/best.pt")
+model = YOLO("../models500/pt/yolo11_baseline.pt")
 
 for i in range(3):
     metrics = model.val(
