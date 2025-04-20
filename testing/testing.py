@@ -23,10 +23,12 @@ names: ["human"]""")
 
 model = YOLO("../models500/pt/yolo11_baseline.pt")
 
-for i in range(3):
+for i in range(1):
     metrics = model.val(
         data=data_file,
-        split="test"
+        split="test",
+        batch=1,
+        save=False,
     )
 
     print("Round:", i)
