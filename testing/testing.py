@@ -8,22 +8,27 @@ import cv2
 import matplotlib.pyplot as plt
 
 import sys
-sys.path.append("../../ultralytics")
+sys.path.insert(0, "../../ultralytics")
 from ultralytics import YOLO
+import ultralytics
+print("Ultralytics YOLO loaded from:", ultralytics.__file__)
 
 
-data_file = "data.yaml"
+def main():
+    data_file = "data.yaml"
 
-with open(data_file, "w") as f:
-    f.write("""train: ../../seaDronesSee_yolo_testing/images/test
+    with open(data_file, "w") as f:
+        f.write("""train: ../../seaDronesSee_yolo_testing/images/test
 val: ../../seaDronesSee_yolo_testing/images/test
 test: ../../seaDronesSee_yolo_testing/images/test
 nc: 1
 names: ["human"]""")
 
-model = YOLO("../models500/pt/yolo11_baseline.pt")
+    name = "yolo11_mobilenet_ca"
+    model = YOLO(f"../models500/pt/{name}.pt")
+    model.export(format="ncnn", half=True)
+    model = YOLO(f"../models500/pt/{name}_ncnn_model")
 
-for i in range(1):
     metrics = model.val(
         data=data_file,
         split="test",
@@ -31,5 +36,6 @@ for i in range(1):
         save=False,
     )
 
-    print("Round:", i)
-    print(metrics)
+
+if __name__ == "__main__":
+    main()

@@ -6,3 +6,6 @@ dataset
 data/seaDronesSee*
 runs/
 testing/data.yaml
+models500/pt/*.onnx
+models500/pt/*_ncnn_model
+models500/pt/*.torchscript
