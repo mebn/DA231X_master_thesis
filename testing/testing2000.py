@@ -18,16 +18,16 @@ def main():
     data_file = "data.yaml"
 
     with open(data_file, "w") as f:
-        f.write("""train: ../../seaDronesSee_yolo_testing/images/test
-val: ../../seaDronesSee_yolo_testing/images/test
-test: ../../seaDronesSee_yolo_testing/images/test
+        f.write("""train: ../../seaDronesSee_yolo_testing2000/images/test
+val: ../../seaDronesSee_yolo_testing2000/images/test
+test: ../../seaDronesSee_yolo_testing2000/images/test
 nc: 1
 names: ["human"]""")
 
-    name = "yolo11_mobilenet_ca"
-    model = YOLO(f"../models500/pt/{name}.pt")
+    name = "yolo11_shufflenet_1_0_ca"
+    model = YOLO(f"../models2000/pt/{name}.pt")
     model.export(format="ncnn", half=True)
-    model = YOLO(f"../models500/pt/{name}_ncnn_model")
+    model = YOLO(f"../models2000/pt/{name}_ncnn_model")
 
     metrics = model.val(
         data=data_file,
